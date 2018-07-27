@@ -11,6 +11,7 @@ const instructions = Platform.select({
 
 export default class App extends Component {
   componentDidMount() {
+    //Retrieve the current registration token   https://rnfirebase.io/docs/v4.2.x/messaging/device-token
     firebase
       .messaging()
       .getToken()
@@ -30,6 +31,7 @@ export default class App extends Component {
         console.log("HasPermission: ", enabled);
       });
 
+    //Listen for Notifications    https://rnfirebase.io/docs/v4.2.x/notifications/receiving-notifications
     this.notificationDisplayedListener = firebase
       .notifications()
       .onNotificationDisplayed(notification => {
